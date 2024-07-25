@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ade87cdd-dd39-40dc-983a-2ca878717794" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2dLZ2YcX9XP2eWBqfhHs79mMk8C" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pacos/Desktop/Skul/Octavo/SDA/evaluacion_2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pacos\Desktop\Skul\Octavo\SDA\evaluacion_2\src\models" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ade87cdd-dd39-40dc-983a-2ca878717794" name="Changes" comment="" />
+      <created>1709789113403</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709789113403</updated>
+      <workItem from="1709789114593" duration="11573000" />
+      <workItem from="1709942078981" duration="161000" />
+      <workItem from="1710176380286" duration="15816000" />
+      <workItem from="1710198658581" duration="482000" />
+      <workItem from="1710205914688" duration="14000" />
+      <workItem from="1710207487391" duration="1231000" />
+      <workItem from="1710209367939" duration="1319000" />
+      <workItem from="1710210804234" duration="984000" />
+      <workItem from="1710464843147" duration="26000" />
+      <workItem from="1710721190260" duration="9251000" />
+      <workItem from="1710790043471" duration="4370000" />
+      <workItem from="1710904147797" duration="47000" />
+      <workItem from="1711150900380" duration="1653000" />
+      <workItem from="1711248499932" duration="42000" />
+      <workItem from="1711249159370" duration="7783000" />
+      <workItem from="1712616701614" duration="1542000" />
+      <workItem from="1712719823093" duration="58000" />
+      <workItem from="1712719908697" duration="6127000" />
+      <workItem from="1712778099440" duration="107000" />
+      <workItem from="1712871401323" duration="431000" />
+      <workItem from="1716333160303" duration="647000" />
+      <workItem from="1717046131126" duration="198000" />
+      <workItem from="1717046529891" duration="81000" />
+      <workItem from="1717047019929" duration="2149000" />
+      <workItem from="1717641820696" duration="141000" />
+      <workItem from="1718136061848" duration="2084000" />
+      <workItem from="1718138408964" duration="716000" />
+      <workItem from="1718345155822" duration="1115000" />
+      <workItem from="1718393427970" duration="159000" />
+      <workItem from="1718493452976" duration="7000" />
+      <workItem from="1720118248311" duration="2113000" />
+      <workItem from="1720494016900" duration="436000" />
+      <workItem from="1720583491794" duration="1390000" />
+      <workItem from="1720656361785" duration="21000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
