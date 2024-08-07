@@ -21,6 +21,10 @@ const assistanceSchema = new Schema({
             required: true,
             type: Schema.Types.Date
         },
+        asistencia:{
+            required: true,
+            type: Schema.Types.Boolean
+        },
     },
     {
         timestamps: true,
