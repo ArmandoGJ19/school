@@ -5,6 +5,7 @@ import careerRoutes from "./src/routes/career.routes.js";
 import graderRoutes from "./src/routes/grader.routes.js";
 import subjectRoutes from "./src/routes/subject.routes.js";
 import authRoutes from "./src/routes/auth.routes.js";
+import assistanceRoutes from "./src/routes/assistance.routes.js"
 import {createRoles} from "./src/libs/initialSetup.js";
 
 const app = express();
@@ -34,4 +35,5 @@ app.use('/api/auth', authRoutes);
 app.use('/api/careers', careerRoutes);
 app.use('/api/grades', graderRoutes);
 app.use('/api/subjects', subjectRoutes);
+app.use('/api/assistances', assistanceRoutes);
 export default app;
