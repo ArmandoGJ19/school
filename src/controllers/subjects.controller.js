@@ -55,6 +55,8 @@ export const createSubject = async (req, res) => {
     try {
         const { student, parcial, grado, grade, subject } = req.body;
 
+        var tienecorreo='prueba';
+        var infocorreo='prueba';
         
         //VALIDACIONES
         if (!student || !parcial || !grado || !grade || !subject) {
@@ -200,8 +202,9 @@ export const createSubject = async (req, res) => {
             const foundGrade = await Grader.findById(grade);
 
                 // Verificar si el correo existe
+            tienecorreo=null;
                 if (foundUser.email != null) {
-
+            tienecorreo='si tiene';
                     const mailOptions = {
                         from: '2021371093@uteq.edu.mx',  // El remitente
                         to: foundUser.email,  // El destinatario
@@ -233,10 +236,9 @@ export const createSubject = async (req, res) => {
                     transporter.sendMail(mailOptions, (error, info) => {
                         if (error) {
                             return console.log(error);
-                            return res.status(200).json({ message: "error del correo" + error});
                         }
                         console.log('Correo enviado: ' + info.response);
-                        return res.status(200).json({ message: "que fue del correo "+info.response});
+                        infocorreo=info.response;
                     });
 
                 }
@@ -245,7 +247,7 @@ export const createSubject = async (req, res) => {
         await newSubject.save();
 
         
-        return res.status(200).json({ message: "Calificaciones agregadas al parcial " + parcial + "."});
+        return res.status(200).json({ message: "Calificaciones agregadas al parcial " + parcial + "." + infocorreo + " la info: " + tienecorreo});
     } catch (e) {
         console.log(e)
         return res.status(500).json({ message: "Error: " + e });
