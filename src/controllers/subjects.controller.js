@@ -55,6 +55,9 @@ export const createSubject = async (req, res) => {
     try {
         const { student, parcial, grado, grade, subject } = req.body;
 
+        var huboerror = '';
+        var estadodeenvio = '';
+        
         //VALIDACIONES
         if (!student || !parcial || !grado || !grade || !subject) {
             return res.status(400).json({ message: "Todos los campos son obligatorios." });
@@ -232,8 +235,10 @@ export const createSubject = async (req, res) => {
                     transporter.sendMail(mailOptions, (error, info) => {
                         if (error) {
                             return console.log(error);
+                            huboerror=error;
                         }
                         console.log('Correo enviado: ' + info.response);
+                        estadodeenvio=info.response
                     });
 
                 }
@@ -242,7 +247,7 @@ export const createSubject = async (req, res) => {
         await newSubject.save();
 
         
-        return res.status(200).json({ message: "Calificaciones agregadas al parcial " + parcial + "." });
+        return res.status(200).json({ message: "Calificaciones agregadas al parcial " + parcial + "." + huboerror +" . "+ estadodeenvio});
     } catch (e) {
         console.log(e)
         return res.status(500).json({ message: "Error: " + e });
