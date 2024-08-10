@@ -7,6 +7,9 @@ import User from "../models/User.js";
 import Role from "../models/Role.js";
 import Grader from "../models/Grader.js";
 import jwt from "jsonwebtoken";
+import { transporter } from "../libs/correos.js";
+
+
 
 //VER TODAS LAS CALIFICACIONES
 export const getSubjects = async (req, res) => {
@@ -170,24 +173,75 @@ export const createSubject = async (req, res) => {
         //     newSubject.status = status;
         //
         // }
-
-        if (parcial === 2) {
-            //TOMAMOS EL GRADO MAS RECIENTE
-            const foundSubjects = await Subject.find({ grade: grade, parcial: 1, grado: grado }); // Buscar los sujetos asociados al grado
+        console.log(parcial);
+        if (parcial == 2) {
+            console.log("Buscando calificaciones del primer parcial para el grado:", grado, "y la materia:", grade);
+            const foundSubjects = await Subject.find({ grade: grade, parcial: 1, grado: grado, student: student });
             if (foundSubjects.length === 0) {
                 return res.status(404).json({ message: "No has registrado calificaciones del primer parcial" });
             }
-            //CALIFICACION DEL PARCIAL 1
+            console.log("Calificaciones del primer parcial encontradas:", foundSubjects);
+            
+            // CALIFICACIÓN DEL PARCIAL 1
             const cal1 = foundSubjects[0].subject;
-            //SUMA DE CALIFICACIONES
+            console.log("Calificación del primer parcial:", cal1);
+            
+            // SUMA DE CALIFICACIONES
             const totalCalification = (cal1 + req.body.subject) / 2;
             const status = totalCalification >= 8 ? "Aprobado" : "Reprobado";
+            console.log("Calificación final:", totalCalification, "Estado:", status);
+            
             // Asignar la calificación final y el estado al nuevo objeto de Subject
             newSubject.finalScore = totalCalification;
             newSubject.status = status;
-        }
 
+            const foundUser = await User.findById(student);
+            const foundGrade = await Grader.findById(grade);
+
+                // Verificar si el correo existe
+                if (foundUser.email != null) {
+
+                    const mailOptions = {
+                        from: '2021371093@uteq.edu.mx',  // El remitente
+                        to: foundUser.email,  // El destinatario
+                        subject: `Calificacion final en la materia: ${foundGrade.name}`,
+                        
+                        html: `
+                        <div style="background-color: #f0f0f0; padding: 20px; font-family: Arial, sans-serif; color: #666390;">
+                        
+                        <h3 style="color: #666390;">La Calificación Final obtenida en la materia <strong>${foundGrade.name}</strong>, del Grado <strong>${newSubject.grado}</strong>, por el Estudiante <strong>${foundUser.name}</strong>, fue la siguiente:</h3>
+                        
+                        <div style="background-color: #b199dd; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                            <h4 style="color: #fff; margin: 0;">Calificación del Primer Parcial: <strong>${cal1}</strong></h4>
+                        </div>
+                        
+                        <div style="background-color: #666390; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                            <h4 style="color: #fff; margin: 0;">Calificación del Segundo Parcial: <strong>${newSubject.subject}</strong></h4>
+                        </div>
+                        
+                        <div style="background-color: #ffdbf4; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                            <h4 style="color: #666390; margin: 0;">Calificación Final: <strong>${totalCalification}</strong></h4>
+                        </div>
+                        
+                        <br/>
+                        <p style="text-align: center; color: #666390;">Gracias por tu esfuerzo y dedicación.</p>
+                        </div>`  // Opcional, si quieres enviar HTML
+                       
+                    };
+                    
+                    transporter.sendMail(mailOptions, (error, info) => {
+                        if (error) {
+                            return console.log(error);
+                        }
+                        console.log('Correo enviado: ' + info.response);
+                    });
+
+                }
+        }
+        
         await newSubject.save();
+
+        
         return res.status(200).json({ message: "Calificaciones agregadas al parcial " + parcial + "." });
     } catch (e) {
         console.log(e)

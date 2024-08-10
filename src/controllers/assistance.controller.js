@@ -1,4 +1,4 @@
-import Assistance from "../models/assistance.js";
+import Assistance from "../models/Assistance.js";
 import User from "../models/User.js";
 import Grader from "../models/Grader.js";
 import mongoose from "mongoose";

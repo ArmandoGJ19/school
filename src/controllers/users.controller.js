@@ -239,8 +239,9 @@ export const updateUserById = async (req, res) => {
             CURP
         };
 
+
         //Validar que haya una nueva contraseña si no se proporcionó antes
-        if (!userExist.password && !password && CURP === undefined) {
+        if (!userExist.password && !password && (CURP != undefined)) {
             return res.status(400).json({ message: "La nueva contraseña es obligatoria." });
         }
         // SI SE PROPORCIONA UNA NUEVA CONTRASEÑA, ACTUALIZARLA
@@ -280,7 +281,7 @@ export const updateUserById = async (req, res) => {
             // Actualizar el documento para quitar los campos email y password
             await User.updateOne(
                 { _id: updatedUser._id },
-                { $unset: { email: 1, password: 1 } }
+                { $unset: { password: 1 } }
             );
             //verificar que exista el studentId
             if (!updatedUser.studentId) {
