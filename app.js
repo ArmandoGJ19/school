@@ -4,6 +4,7 @@ import userRoutes from "./src/routes/user.routes.js";
 import careerRoutes from "./src/routes/career.routes.js";
 import graderRoutes from "./src/routes/grader.routes.js";
 import subjectRoutes from "./src/routes/subject.routes.js";
+import graphics from "./src/routes/graphics.routes.js";
 import authRoutes from "./src/routes/auth.routes.js";
 import assistanceRoutes from "./src/routes/assistance.routes.js"
 import {createRoles} from "./src/libs/initialSetup.js";
@@ -36,4 +37,5 @@ app.use('/api/careers', careerRoutes);
 app.use('/api/grades', graderRoutes);
 app.use('/api/subjects', subjectRoutes);
 app.use('/api/assistances', assistanceRoutes);
+app.use('/api/graphics', graphics);
 export default app;
