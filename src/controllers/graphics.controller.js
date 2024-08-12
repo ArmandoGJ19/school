@@ -40,8 +40,21 @@ export const graphics2 = async (req, res) => {
 
 export const graphics = async (req, res) => {
     try {
+        const user = await getToken(req)
+        const roles = await Role.find({ _id: { $in: user.roles } });
+        console.log(roles)
+        const role = roles[0].name
         let subjects;
+
+        if (role === "alumno") {
+            subjects = await studentSubjects(user._id);
+        }
+        else if (role === "profesor" || role === "servicios_escolares") {
            subjects = await allSubjects();
+        } else {
+            return res.status(401).json({ message: "No autorizado." });
+        }
+
         const gradesCount = {
             '10': 0,
             '9': 0,
@@ -57,6 +70,7 @@ export const graphics = async (req, res) => {
                 gradesCount[grade]++;
             }
         });
+
         res.status(200).json(gradesCount);
     } catch (error) {
         res.status(404).json({ message: error.message });
@@ -93,6 +107,37 @@ async function allSubjects() {
     ]);
 
     if (!subjects) {
+        return "No hay calificaciones";
+    }
+    return subjects;
+}
+
+async function studentSubjects(userId) {
+    const subjects = await Subject.aggregate([
+        {
+            $lookup: {
+                from: "users",
+                localField: "student",
+                foreignField: "_id",
+                as: "student",
+            },
+        },
+        {
+            $lookup: {
+                from: "graders",
+                localField: "grade",
+                foreignField: "_id",
+                as: "grade",
+            },
+        },
+        {
+            $match: {
+                "student._id": new mongoose.Types.ObjectId(userId),
+            },
+        },
+    ]);
+
+    if (!subjects || subjects.length === 0) {
         return "No hay calificaciones";
     }
     return subjects;
